@@ -12,7 +12,7 @@ import {
 } from '../utils/actions';
 import { reducer } from '../utils/reducers';
 
-// create a sample of global state
+// create a sample of initial state
 const initialState = {
     products: [],
     categories: [{ name: 'Food' }],
