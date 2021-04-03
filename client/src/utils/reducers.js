@@ -12,7 +12,15 @@ import {
     TOGGLE_CART,
 } from './actions';
 
-export const reducer = (state, action) => {
+const initialState = {
+    cart: [],
+    cartOpen: false,
+    products: [],
+    categories: [],
+    currentCategory: ''    
+};
+
+export const reducer = (state = initialState, action) => {
     switch (action.type) {
         // if check action.type and, return a new state object with an appropriately updated products array
         case ADD_TO_CART: 
@@ -28,7 +36,7 @@ export const reducer = (state, action) => {
             };
         case CLEAR_CART: 
             return {
-                ///state,
+                ...state,
                 cartOpen:false,
                 cart: []
             };
@@ -80,6 +88,8 @@ export const reducer = (state, action) => {
     }
 };
 
-export function useProductReducer(initialState) {
-    return useReducer(reducer, initialState);
-};
+// export function useProductReducer(initialState) {
+//     return useReducer(reducer, initialState);
+// };
+
+export default reducer;
